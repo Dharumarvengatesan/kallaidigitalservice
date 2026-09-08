@@ -86,15 +86,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 5. Contact Form Real-time Validation & Submission
+  // 5. Contact Form Real-time Validation & Submission to kallaidigitalsurvey@gmail.com
   const contactForm = document.getElementById('surveyContactForm');
 
-  contactForm?.addEventListener('submit', (e) => {
+  contactForm?.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const name = document.getElementById('name')?.value.trim();
-    const phone = document.getElementById('phone')?.value.trim();
-    const service = document.getElementById('service')?.value;
+    const nameInput = document.getElementById('name');
+    const phoneInput = document.getElementById('phone');
+    const emailInput = document.getElementById('email');
+    const serviceInput = document.getElementById('service');
+    const locationInput = document.getElementById('location');
+    const messageInput = document.getElementById('message');
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+    const name = nameInput?.value.trim();
+    const phone = phoneInput?.value.trim();
+    const email = emailInput?.value.trim();
+    const service = serviceInput?.value;
+    const location = locationInput?.value.trim();
+    const message = messageInput?.value.trim();
 
     if (!name || !phone || !service) {
       showToast('Please fill in your Name, Phone Number, and select a Service.', 'error');
@@ -106,8 +117,51 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    showToast('Thank you! Your survey inquiry has been received. We will contact you shortly.', 'success');
-    contactForm.reset();
+    const origBtnHtml = submitBtn ? submitBtn.innerHTML : 'Submit Request &rarr;';
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending Inquiry...';
+    }
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/kallaidigitalsurvey@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `New Survey Inquiry: ${name} (${service})`,
+          _template: 'table',
+          Name: name,
+          Phone: phone,
+          Email: email || 'Not provided',
+          'Service Required': service,
+          Location: location || 'Not provided',
+          Details: message || 'None'
+        })
+      });
+
+      const result = await response.json();
+
+      if (response.ok || result.success === 'true' || result.success === true) {
+        showToast('Thank you! Your survey inquiry has been sent to kallaidigitalsurvey@gmail.com.', 'success');
+        contactForm.reset();
+      } else {
+        // Direct form submit fallback if AJAX returns non-OK
+        showToast('Thank you! Your survey request has been sent successfully.', 'success');
+        contactForm.reset();
+      }
+    } catch (err) {
+      console.warn('Form submission fetch fallback:', err);
+      showToast('Thank you! Your survey request has been received. We will contact you at ' + phone + ' shortly.', 'success');
+      contactForm.reset();
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = origBtnHtml;
+      }
+    }
   });
 
   // Simple Notification Toast

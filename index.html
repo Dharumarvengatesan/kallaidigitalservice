@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -776,18 +776,21 @@
 
         <div class="contact-layout">
           <!-- Form -->
-          <form class="contact-form" id="surveyContactForm">
+          <form class="contact-form" id="surveyContactForm" action="https://formsubmit.co/kallaidigitalsurvey@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="New Survey Inquiry from Website">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
             <div class="form-group">
-              <input type="text" class="form-input" id="name" placeholder="Your Name *" required>
+              <input type="text" class="form-input" id="name" name="name" placeholder="Your Name *" required>
             </div>
             <div class="form-group">
-              <input type="tel" class="form-input" id="phone" placeholder="Phone Number *" required>
+              <input type="tel" class="form-input" id="phone" name="phone" placeholder="Phone Number *" required>
             </div>
             <div class="form-group">
-              <input type="email" class="form-input" id="email" placeholder="Email Address *">
+              <input type="email" class="form-input" id="email" name="email" placeholder="Email Address *">
             </div>
             <div class="form-group">
-              <select class="form-input" id="service" required>
+              <select class="form-input" id="service" name="service" required>
                 <option value="" disabled selected>Service Required *</option>
                 <option value="Land Digital Survey">Land Digital Survey</option>
                 <option value="Engineering Survey">Engineering Survey</option>
@@ -796,10 +799,10 @@
               </select>
             </div>
             <div class="form-group full">
-              <input type="text" class="form-input" id="location" placeholder="Location *">
+              <input type="text" class="form-input" id="location" name="location" placeholder="Location *">
             </div>
             <div class="form-group full">
-              <textarea class="form-input" id="message" placeholder="Project Details *"></textarea>
+              <textarea class="form-input" id="message" name="message" placeholder="Project Details *"></textarea>
             </div>
             <div class="form-group full">
               <button type="submit" class="btn btn-green btn-xs" style="width:100%;">Submit Request &rarr;</button>
