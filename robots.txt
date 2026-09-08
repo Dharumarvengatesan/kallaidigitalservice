@@ -1,0 +1,5 @@
+# Robots.txt for KallaiDigitalService
+User-agent: *
+Allow: /
+
+Sitemap: https://kallaidigitalservice.com/sitemap.xml

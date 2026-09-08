@@ -1,0 +1,21 @@
+{
+  "name": "KallaiDigitalService - Land & Engineering Digital Survey Solutions",
+  "short_name": "KallaiDigitalService",
+  "description": "High-accuracy Land Digital Survey, Engineering Survey, Total Station, GPS/GNSS, Drone Mapping & 3D Topographical Survey services in Kallakurichi, Tamil Nadu.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b1a30",
+  "theme_color": "#10b981",
+  "icons": [
+    {
+      "src": "/assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
