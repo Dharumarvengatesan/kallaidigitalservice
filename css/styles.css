@@ -316,8 +316,8 @@ button { cursor: pointer; background: none; }
   position: absolute;
   inset: 0;
   z-index: -2;
-  /* Image focal point: 30% from left keeps surveyor well visible on desktop */
-  background: url('../assets/images/hero_bg_panoramic.png') no-repeat 30% center / cover;
+  /* 50% centre keeps surveyor + drone both visible on wide screens */
+  background: url('../assets/images/hero_bg_panoramic.png') no-repeat 50% center / cover;
   /* Natural brightness — not too bright, not too dark */
   filter: brightness(1.08) contrast(1.05) saturate(1.04);
   transform: scale(1.02);
@@ -1721,8 +1721,8 @@ textarea.form-input {
   }
 
   .hero::before {
-    /* Left-side focal: image fills from left, text overlaps naturally */
-    background-position: 25% center;
+    /* 55% puts the surveyor and drone clearly in frame on tablet */
+    background-position: 55% center;
     filter: brightness(1.10) contrast(1.05) saturate(1.05);
     transform: scale(1.0);
   }
@@ -1822,8 +1822,8 @@ textarea.form-input {
   }
 
   .hero::before {
-    /* Keep image on left so surveyor visible on small screens */
-    background-position: 20% center;
+    /* Mobile portrait: 55-60% positions the surveyor + drone in view */
+    background-position: 58% 40%;
     filter: brightness(1.12) contrast(1.05) saturate(1.05);
   }
 
