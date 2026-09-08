@@ -1846,9 +1846,9 @@ textarea.form-input {
 
   .hero-bottom-bar {
     grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    border-top: 1px solid rgba(255,255,255,0.12);
-    padding-top: 14px;
+    gap: 5px;
+    border-top: 1px solid rgba(255,255,255,0.10);
+    padding-top: 10px;
     max-width: 100%;
   }
 
@@ -1857,18 +1857,25 @@ textarea.form-input {
   }
 
   .bar-col {
-    background: rgba(255, 255, 255, 0.07);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    padding: 10px 6px;
-    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    padding: 6px 4px;
+    border-radius: 6px;
     backdrop-filter: blur(4px);
     align-items: flex-start;
     text-align: left;
+    gap: 3px;
+  }
+
+  .bar-icon {
+    font-size: 12px;
   }
 
   .bar-label {
-    font-size: 10px;
+    font-size: 8.5px;
+    font-weight: 600;
     text-align: left;
+    line-height: 1.2;
   }
 }
 
@@ -1927,17 +1934,16 @@ textarea.form-input {
 
   .hero-bottom-bar {
     grid-template-columns: 1fr 1fr;
-    gap: 6px;
+    gap: 4px;
   }
 
   .bar-col {
-    padding: 8px 5px;
-    align-items: flex-start;
-    text-align: left;
+    padding: 5px 4px;
+    gap: 2px;
   }
 
-  .bar-icon { font-size: 15px; }
-  .bar-label { font-size: 9.5px; text-align: left; }
+  .bar-icon { font-size: 11px; }
+  .bar-label { font-size: 8px; }
 }
 
 /* MOBILE LANDSCAPE */
