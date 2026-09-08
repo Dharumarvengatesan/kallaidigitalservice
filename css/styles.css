@@ -271,7 +271,7 @@ button { cursor: pointer; background: none; }
    ══════════════════════════════════════════════════════════════════ */
 .hero {
   position: relative;
-  background: #051424 url('../assets/images/mobile_hero_bg.png') no-repeat center right / cover;
+  background: #051424 url('../assets/images/hero_bg_panoramic.png') no-repeat center right / cover;
   height: 380px;
   display: flex;
   align-items: center;
@@ -282,7 +282,7 @@ button { cursor: pointer; background: none; }
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(7, 21, 39, 0.95) 0%, rgba(7, 21, 39, 0.7) 45%, rgba(7, 21, 39, 0) 100%);
+  background: linear-gradient(90deg, rgba(7, 21, 39, 0.95) 0%, rgba(7, 21, 39, 0.85) 45%, rgba(7, 21, 39, 0.4) 100%);
 }
 
 .hero-inner {
@@ -1606,7 +1606,7 @@ textarea.form-input {
   }
 
   .hero-overlay {
-    background: linear-gradient(180deg, rgba(7, 21, 39, 0.90) 0%, rgba(7, 21, 39, 0.75) 100%);
+    background: linear-gradient(180deg, rgba(7, 21, 39, 0.95) 0%, rgba(7, 21, 39, 0.85) 100%);
   }
 
   .hero-pretag {
