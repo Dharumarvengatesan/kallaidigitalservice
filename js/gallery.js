@@ -1,16 +1,15 @@
 /**
- * KallaiDigitalService - Gallery & Lightbox JavaScript Logic
- * Handles Masonry filter tabs & Fullscreen Lightbox Modal Slider.
+ * KallaiDigitalService - Gallery & Image Viewer Logic
+ * Handles Masonry filter tabs & Fullscreen Lightbox Modal for Home Screen Images.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  const filterBtns = document.querySelectorAll('.filter-btn');
+  const filterBtns = document.querySelectorAll('.filter-btn, .filter-btn-sm');
   const galleryItems = document.querySelectorAll('.gallery-item');
 
-  // 1. Gallery Filtering System
+  // 1. Gallery Filter System
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
-      // Remove active class from all buttons
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
 
@@ -20,17 +19,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const itemCategory = item.getAttribute('data-category');
 
         if (filterValue === 'all' || filterValue === itemCategory) {
-          item.classList.remove('hide');
+          item.style.display = 'block';
           item.style.opacity = '1';
           item.style.transform = 'scale(1)';
         } else {
-          item.classList.add('hide');
+          item.style.display = 'none';
         }
       });
     });
   });
 
-  // 2. Fullscreen Lightbox Modal System
+  // 2. Fullscreen Lightbox Modal System for Home Screen Images
   const lightboxModal = document.getElementById('lightboxModal');
   const lightboxImg = document.getElementById('lightboxImg');
   const lightboxTitle = document.getElementById('lightboxTitle');
@@ -39,61 +38,64 @@ document.addEventListener('DOMContentLoaded', () => {
   const lightboxPrev = document.querySelector('.lightbox-prev');
   const lightboxNext = document.querySelector('.lightbox-next');
 
-  let currentGalleryList = [];
+  // Target all clickable image containers across the Home Screen
+  const clickableElements = document.querySelectorAll('.gallery-item, .equipment-card-sm, .about-img-box, .hero-img-card');
+  let currentList = [];
   let currentIndex = 0;
 
-  // Open Lightbox on item click
-  galleryItems.forEach((item, idx) => {
-    item.addEventListener('click', () => {
-      // Get all currently visible items for correct slider index
-      currentGalleryList = Array.from(document.querySelectorAll('.gallery-item:not(.hide)'));
-      currentIndex = currentGalleryList.indexOf(item);
+  clickableElements.forEach((el) => {
+    el.style.cursor = 'pointer';
+    
+    el.addEventListener('click', () => {
+      // Build active list of visible elements
+      currentList = Array.from(document.querySelectorAll('.gallery-item:not([style*="display: none"]), .equipment-card-sm, .about-img-box, .hero-img-card'));
+      currentIndex = currentList.indexOf(el);
 
       if (currentIndex !== -1) {
-        updateLightboxContent(currentGalleryList[currentIndex]);
+        updateLightboxContent(currentList[currentIndex]);
         lightboxModal?.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Lock background scroll
+        document.body.style.overflow = 'hidden';
       }
     });
   });
 
-  function updateLightboxContent(item) {
-    if (!item) return;
+  function updateLightboxContent(element) {
+    if (!element) return;
 
-    const imgElement = item.querySelector('img');
-    const titleElement = item.querySelector('.gallery-title');
-    const categoryElement = item.querySelector('.gallery-category-badge');
+    const imgElement = element.querySelector('img');
+    const titleElement = element.querySelector('h4, h5, .gallery-title, .panel-title');
+    const categoryElement = element.querySelector('.gallery-category-badge, span, p');
 
     if (imgElement && lightboxImg) {
       lightboxImg.src = imgElement.src;
-      lightboxImg.alt = imgElement.alt || 'Survey Project';
+      lightboxImg.alt = imgElement.alt || 'KallaiDigitalService Survey Image';
     }
 
-    if (titleElement && lightboxTitle) {
-      lightboxTitle.innerText = titleElement.innerText;
+    if (lightboxTitle) {
+      lightboxTitle.innerText = titleElement ? titleElement.innerText : 'KallaiDigitalService Survey Project';
     }
 
-    if (categoryElement && lightboxCategory) {
-      lightboxCategory.innerText = categoryElement.innerText;
+    if (lightboxCategory) {
+      lightboxCategory.innerText = categoryElement ? categoryElement.innerText : 'Land & Engineering Digital Survey';
     }
   }
 
-  // Next & Prev Controls
+  // Next & Prev Slider Controls
   lightboxNext?.addEventListener('click', (e) => {
     e.stopPropagation();
-    if (currentGalleryList.length === 0) return;
-    currentIndex = (currentIndex + 1) % currentGalleryList.length;
-    updateLightboxContent(currentGalleryList[currentIndex]);
+    if (currentList.length === 0) return;
+    currentIndex = (currentIndex + 1) % currentList.length;
+    updateLightboxContent(currentList[currentIndex]);
   });
 
   lightboxPrev?.addEventListener('click', (e) => {
     e.stopPropagation();
-    if (currentGalleryList.length === 0) return;
-    currentIndex = (currentIndex - 1 + currentGalleryList.length) % currentGalleryList.length;
-    updateLightboxContent(currentGalleryList[currentIndex]);
+    if (currentList.length === 0) return;
+    currentIndex = (currentIndex - 1 + currentList.length) % currentList.length;
+    updateLightboxContent(currentList[currentIndex]);
   });
 
-  // Close Lightbox
+  // Close Lightbox Function
   function closeLightbox() {
     lightboxModal?.classList.remove('active');
     document.body.style.overflow = '';
@@ -101,14 +103,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   lightboxClose?.addEventListener('click', closeLightbox);
 
-  // Close on outside click
   lightboxModal?.addEventListener('click', (e) => {
     if (e.target === lightboxModal) {
       closeLightbox();
     }
   });
 
-  // Keyboard navigation (Escape, Arrow Left, Arrow Right)
+  // Keyboard Shortcuts (Esc to close, Left/Right arrows to navigate)
   document.addEventListener('keydown', (e) => {
     if (!lightboxModal?.classList.contains('active')) return;
 
