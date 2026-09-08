@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 120" width="540" height="120">
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0066cc" />
+      <stop offset="100%" stop-color="#0b1a30" />
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+  </defs>
+
+  <!-- Left Icon: Mountain, Field Wave & Total Station -->
+  <g transform="translate(10, 10)">
+    <!-- Mountain Background -->
+    <path d="M15 85 L45 25 L65 60 L85 20 L115 85 Z" fill="url(#blueGrad)" opacity="0.9" />
+    <!-- Green Ground Contour Curve -->
+    <path d="M5 90 Q 55 55 125 90 Q 95 98 5 90 Z" fill="url(#greenGrad)" />
+    
+    <!-- Total Station Instrument -->
+    <!-- Tripod Legs -->
+    <path d="M60 45 L35 95 M60 45 L85 95 M60 45 L60 95" stroke="#0b1a30" stroke-width="4.5" stroke-linecap="round"/>
+    <!-- Main Body -->
+    <rect x="50" y="25" width="20" height="24" rx="4" fill="#0b1a30"/>
+    <!-- Optical Lens & Display -->
+    <circle cx="60" cy="36" r="6" fill="#00d2ff"/>
+    <circle cx="60" cy="36" r="2" fill="#ffffff"/>
+    <path d="M70 32 L82 27 L82 43 L70 38 Z" fill="#0b1a30"/>
+    <!-- Top Handle -->
+    <path d="M53 25 L53 18 L67 18 L67 25" stroke="#0b1a30" stroke-width="3" fill="none" />
+  </g>
+
+  <!-- Typography Right -->
+  <g transform="translate(145, 48)">
+    <text font-family="'Outfit', 'Inter', sans-serif" font-weight="800" font-size="40" letter-spacing="-0.5">
+      <tspan fill="#0b1a30">Kallai</tspan>
+      <tspan fill="#10b981">Digital</tspan>
+      <tspan fill="#0b1a30">Service</tspan>
+    </text>
+  </g>
+
+  <!-- Subtitle Tagline -->
+  <g transform="translate(148, 78)">
+    <text font-family="'Inter', sans-serif" font-weight="700" font-size="17" fill="#475569" letter-spacing="0.2">
+      Land &amp; Engineering Digital Survey Solutions
+    </text>
+  </g>
+</svg>
