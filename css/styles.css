@@ -239,19 +239,33 @@ button { cursor: pointer; background: none; }
 .header-contact-item {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
 }
+.header-contact-item:hover { opacity: 0.85; }
 
+/* Phone icon — green circle with white icon */
 .header-icon-circle {
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 11px;
-  background: #f0fdf4;
-  color: var(--green);
+  font-size: 12px;
+  flex-shrink: 0;
+}
+.header-icon-circle.phone {
+  background: var(--green);
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(16,185,129,0.35);
+}
+/* WhatsApp icon — WhatsApp green */
+.header-icon-circle.wa {
+  background: #25D366;
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(37,211,102,0.35);
 }
 
 .header-contact-text {
@@ -262,9 +276,10 @@ button { cursor: pointer; background: none; }
 
 .header-contact-label {
   font-size: 8.5px;
-  color: var(--green);
+  color: var(--text-muted);
   font-weight: 700;
   text-transform: uppercase;
+  letter-spacing: 0.3px;
 }
 
 .header-contact-number {
@@ -301,24 +316,26 @@ button { cursor: pointer; background: none; }
   position: absolute;
   inset: 0;
   z-index: -2;
-  background: url('../assets/images/hero_bg_panoramic.png') no-repeat 60% center / cover;
-  filter: brightness(1.12) contrast(1.07) saturate(1.06);
+  /* Image focal point: 30% from left keeps surveyor well visible on desktop */
+  background: url('../assets/images/hero_bg_panoramic.png') no-repeat 30% center / cover;
+  /* Natural brightness — not too bright, not too dark */
+  filter: brightness(1.08) contrast(1.05) saturate(1.04);
   transform: scale(1.02);
   transform-origin: center center;
   will-change: transform;
 }
 
-/* Subtle gradient overlay — light touch only, left side darker for text */
+/* Subtle gradient overlay — balanced: left darker for text, right shows image naturally */
 .hero-overlay {
   position: absolute;
   inset: 0;
   z-index: -1;
   background: linear-gradient(
     90deg,
-    rgba(7, 21, 39, 0.80) 0%,
-    rgba(7, 21, 39, 0.52) 38%,
-    rgba(7, 21, 39, 0.18) 65%,
-    rgba(7, 21, 39, 0.06) 100%
+    rgba(5, 16, 34, 0.75) 0%,
+    rgba(5, 16, 34, 0.45) 40%,
+    rgba(5, 16, 34, 0.12) 65%,
+    rgba(5, 16, 34, 0.02) 100%
   );
 }
 
@@ -1694,74 +1711,87 @@ textarea.form-input {
     font-size: 14px;
   }
 
-  /* TABLET: 768px */
+  /* TABLET 768px */
   .hero {
     height: auto;
-    min-height: 500px;
+    min-height: 480px;
     padding: 0;
     isolation: isolate;
     background: #051424;
   }
 
   .hero::before {
-    /* Move focal point so the surveyor + drone is visible in portrait */
-    background-position: 68% center;
-    /* Boost brightness a bit more on mobile — screens tend to render darker */
-    filter: brightness(1.18) contrast(1.06) saturate(1.08);
+    /* Left-side focal: image fills from left, text overlaps naturally */
+    background-position: 25% center;
+    filter: brightness(1.10) contrast(1.05) saturate(1.05);
     transform: scale(1.0);
   }
 
-  /* Lighter overlay on mobile so image is visible */
+  /* Overlay: left band dark for text, right opens up so image shows */
   .hero-overlay {
     background: linear-gradient(
-      180deg,
-      rgba(7, 21, 39, 0.72) 0%,
-      rgba(7, 21, 39, 0.60) 55%,
-      rgba(7, 21, 39, 0.50) 100%
+      90deg,
+      rgba(5, 16, 34, 0.82) 0%,
+      rgba(5, 16, 34, 0.55) 45%,
+      rgba(5, 16, 34, 0.20) 100%
     );
   }
 
   .hero-inner {
-    padding: 36px 0 28px;
+    padding: 32px 0 24px;
+  }
+
+  /* All text: left-aligned, compact sizes */
+  .hero-content {
+    max-width: 70%;    /* leaves right 30% for image to peek through */
   }
 
   .hero-pretag {
-    font-size: 10px;
-    margin-bottom: 6px;
+    font-size: 9.5px;
+    margin-bottom: 5px;
+    text-align: left;
+  }
+
+  .pretag-line {
+    margin-left: 0;
   }
 
   .hero-title {
-    font-size: 26px;
+    font-size: 22px;
     line-height: 1.22;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
+    text-align: left;
   }
 
   .hero-desc {
-    font-size: 12px;
-    line-height: 1.5;
-    margin-bottom: 18px;
+    font-size: 11px;
+    line-height: 1.45;
+    margin-bottom: 16px;
     max-width: 100%;
+    text-align: left;
   }
 
   .hero-btns {
     flex-direction: column;
-    gap: 10px;
-    margin-bottom: 24px;
-    width: 100%;
+    gap: 9px;
+    margin-bottom: 20px;
+    width: auto;
+    align-items: flex-start;
   }
 
   .btn-hero-green, .btn-hero-outline {
-    width: 100%;
+    width: auto;
+    min-width: 180px;
     justify-content: center;
-    padding: 12px 18px;
-    font-size: 13px;
+    padding: 10px 16px;
+    font-size: 11.5px;
   }
 
   .hero-bottom-bar {
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    border-top: none;
-    padding-top: 0;
+    gap: 8px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding-top: 14px;
     max-width: 100%;
   }
 
@@ -1770,54 +1800,87 @@ textarea.form-input {
   }
 
   .bar-col {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    padding: 12px 8px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 10px 6px;
     border-radius: 8px;
     backdrop-filter: blur(4px);
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .bar-label {
+    font-size: 10px;
+    text-align: left;
   }
 }
 
 /* MOBILE PORTRAIT: 430px / 390px / 375px */
 @media (max-width: 480px) {
   .hero {
-    min-height: 460px;
+    min-height: 440px;
   }
 
   .hero::before {
-    /* Centre on the surveyor's upper body — the most recognisable focal point */
-    background-position: 72% 30%;
-    filter: brightness(1.22) contrast(1.05) saturate(1.08);
+    /* Keep image on left so surveyor visible on small screens */
+    background-position: 20% center;
+    filter: brightness(1.12) contrast(1.05) saturate(1.05);
   }
 
   .hero-overlay {
     background: linear-gradient(
-      180deg,
-      rgba(7, 21, 39, 0.68) 0%,
-      rgba(7, 21, 39, 0.58) 50%,
-      rgba(7, 21, 39, 0.45) 100%
+      90deg,
+      rgba(5, 16, 34, 0.80) 0%,
+      rgba(5, 16, 34, 0.50) 50%,
+      rgba(5, 16, 34, 0.18) 100%
     );
   }
 
   .hero-inner {
-    padding: 32px 0 24px;
+    padding: 28px 0 20px;
+  }
+
+  .hero-content {
+    max-width: 78%;
+  }
+
+  .hero-pretag {
+    font-size: 9px;
+    letter-spacing: 0.3px;
   }
 
   .hero-title {
-    font-size: 23px;
+    font-size: 19px;
+    margin-bottom: 8px;
+    text-align: left;
   }
 
   .hero-desc {
-    font-size: 11.5px;
+    font-size: 10.5px;
+    line-height: 1.45;
+    margin-bottom: 14px;
+    text-align: left;
   }
 
   .btn-hero-green, .btn-hero-outline {
-    font-size: 12px;
-    padding: 11px 16px;
+    font-size: 11px;
+    padding: 9px 14px;
+    min-width: 160px;
   }
 
-  .bar-icon { font-size: 16px; }
-  .bar-label { font-size: 10px; }
+  .hero-bottom-bar {
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+
+  .bar-col {
+    padding: 8px 5px;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .bar-icon { font-size: 15px; }
+  .bar-label { font-size: 9.5px; text-align: left; }
 }
 
 /* MOBILE LANDSCAPE */
