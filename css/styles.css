@@ -1519,12 +1519,69 @@ textarea.form-input {
 
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 5px;
+  padding-top: 8px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px;
   font-size: 8.5px;
   color: rgba(255, 255, 255, 0.6);
+}
+
+/* Hide the redundant mobile span on desktop */
+.footer-bottom-mobile {
+  display: none;
+}
+
+/* "Designed & Developed by Riskfreefeel Technologies" — all views */
+.footer-devby {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 8px;
+  padding-top: 10px;
+  padding-bottom: 4px;
+  text-align: center;
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.footer-devby-link {
+  color: #46ec62;
+  font-weight: 700;
+  font-size: 10.5px;
+  text-decoration: none;
+  letter-spacing: 0.2px;
+  transition: opacity 0.2s ease;
+}
+.footer-devby-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* Mobile: show the bottom-mobile span too for max visibility */
+@media (max-width: 640px) {
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 5px;
+  }
+  .footer-bottom-mobile {
+    display: block;
+    font-size: 9px;
+    color: rgba(255, 255, 255, 0.65);
+  }
+  .footer-devby {
+    font-size: 11px;
+    padding-top: 12px;
+  }
+  .footer-devby-link {
+    font-size: 12px;
+  }
 }
 
 /* Target Scroll Offset for Sticky Header */
