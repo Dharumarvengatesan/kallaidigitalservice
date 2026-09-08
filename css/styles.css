@@ -1226,6 +1226,7 @@ textarea.form-input {
 @media (max-width: 1024px) {
   .header-inner {
     position: relative;
+    padding: 0 8px;
   }
 
   .nav {
@@ -1290,7 +1291,7 @@ textarea.form-input {
   }
 
   .about-img-box {
-    height: 160px;
+    height: 180px;
   }
 
   .eq-grid {
@@ -1324,27 +1325,102 @@ textarea.form-input {
   }
 }
 
+@media (max-width: 768px) {
+  .logo-sub {
+    display: none;
+  }
+
+  .logo-title {
+    font-size: 14px;
+  }
+
+  .hero {
+    height: auto;
+    min-height: 320px;
+    padding: 24px 0 28px;
+  }
+
+  .hero-overlay {
+    background: linear-gradient(180deg, rgba(7, 21, 39, 0.90) 0%, rgba(7, 21, 39, 0.82) 100%);
+  }
+
+  .hero-slogan {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    font-size: 17px;
+    margin-bottom: 6px;
+    text-align: left;
+  }
+
+  .hero-pretag {
+    font-size: 9px;
+    margin-bottom: 4px;
+  }
+
+  .hero-title {
+    font-size: 19px;
+    line-height: 1.25;
+    margin-bottom: 8px;
+  }
+
+  .hero-desc {
+    font-size: 10.5px;
+    line-height: 1.45;
+    margin-bottom: 12px;
+  }
+
+  .hero-btns {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .hero-pills {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+
+  .hero-pill {
+    font-size: 9px;
+    padding: 4px 8px;
+    justify-content: center;
+  }
+}
+
 @media (max-width: 640px) {
+  #hdr-wa-btn {
+    display: none;
+  }
+
   .header-contact-number {
     font-size: 10px;
   }
+
   .footer-inner {
     grid-template-columns: 1fr;
   }
-  .hero {
-    height: 290px;
-  }
-  .hero-title {
-    font-size: 22px;
-  }
-  .hero-desc {
-    font-size: 10.5px;
-  }
+
   .gal-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
   .gal-item {
-    height: 90px;
+    height: 100px;
+  }
+
+  .panel {
+    padding: 12px;
+  }
+
+  .panel-title {
+    font-size: 14px;
+  }
+
+  .panel-sub {
+    font-size: 10px;
   }
 }
 
