@@ -165,14 +165,30 @@ button { cursor: pointer; background: none; }
 .logo {
   display: flex;
   align-items: center;
-  gap: 7px;
+  gap: 0;
   flex-shrink: 0;
 }
 
 .brand-logo-img {
-  height: 38px;
+  height: 46px;
   width: auto;
+  max-width: 210px;
   object-fit: contain;
+  display: block;
+  /* Ensure crisp rendering at all sizes */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Responsive logo sizing */
+@media (max-width: 1024px) {
+  .brand-logo-img { height: 42px; max-width: 190px; }
+}
+@media (max-width: 768px) {
+  .brand-logo-img { height: 38px; max-width: 170px; }
+}
+@media (max-width: 480px) {
+  .brand-logo-img { height: 34px; max-width: 150px; }
 }
 
 /* Original Logo Text styles hidden as they are replaced by image */
