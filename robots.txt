@@ -1,5 +1,5 @@
-# Robots.txt for KallaiDigitalService
+# Robots.txt for KallaiDigitalSurvey
 User-agent: *
 Allow: /
 
-Sitemap: https://kallaidigitalservice.com/sitemap.xml
+Sitemap: https://kallaidigitalsurvey.com/sitemap.xml

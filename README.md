@@ -1,6 +1,6 @@
-# kallaidigitalservice
+# kallaidigitalsurvey
 
-Modern, premium, responsive business website for **KallaiDigitalService** — Land & Engineering Digital Survey Solutions.
+Modern, premium, responsive business website for **KallaiDigitalSurvey** — Land & Engineering Digital Survey Solutions.
 
 ## Features
 - **Land Digital Survey**: Property boundary survey, land measurement, topographical & contour mapping.
@@ -10,5 +10,5 @@ Modern, premium, responsive business website for **KallaiDigitalService** — La
 
 ## Contact Information
 - **Phone / WhatsApp**: +91 9360146083
-- **Email**: kallaidigitalservice@gmail.com
+- **Email**: kallaidigitalsurvey@gmail.com
 - **Address**: No.23, pukkiravari pudur, Kallakurichi - 606204, Tamil Nadu, India

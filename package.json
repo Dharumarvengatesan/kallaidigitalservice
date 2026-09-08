@@ -1,0 +1,19 @@
+{
+  "name": "kallaidigitalsurvey",
+  "version": "1.0.0",
+  "description": "KallaiDigitalSurvey - Land & Engineering Digital Survey Services",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'Static build ready'",
+    "start": "serve ."
+  },
+  "keywords": [
+    "land survey",
+    "digital survey",
+    "kallakurichi",
+    "total station",
+    "dgps"
+  ],
+  "author": "KallaiDigitalSurvey",
+  "license": "ISC"
+}
