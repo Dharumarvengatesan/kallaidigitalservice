@@ -1,6 +1,4 @@
 {
-  "version": 2,
-  "name": "kallaidigitalsurvey",
   "cleanUrls": true,
   "trailingSlash": false,
   "headers": [
