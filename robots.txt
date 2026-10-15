@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kallaidigitalsurvey.com/sitemap.xml
+Sitemap: https://www.kallaidigitalsurvey.co.in/sitemap.xml
